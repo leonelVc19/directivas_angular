@@ -8,22 +8,28 @@
       #txtEmail
       type="text"
       (input)="onFieldUpdated('email', txtEmail.value)"
+      [value]="user().email"
     >
     <input
       class="form-control mb-2"
       #firstName
       type="text"
       (input)="onFieldUpdated('first_name', firstName.value)"
+      [value]="user().first_name"
     >
     <input
       class="form-control mb-2"
       #lastName
       type="text"
       (input)="onFieldUpdated('last_name', lastName.value)"
+      [value]="user().last_name"
     >
   </div>
   <div class="col-6">
     <!-- data usuario -->
-    <pre> {{ 'cd' }}</pre>
+    <pre> {{ user() | json }}</pre>
+    <p>{{ fullName() }}</p>
+
+    <button class="btn btn-primary" (click)="increaseBy(+1)">+1</button>
   </div>
 </div>
